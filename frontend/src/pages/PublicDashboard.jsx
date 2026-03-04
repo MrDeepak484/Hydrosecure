@@ -156,13 +156,13 @@ export default function PublicDashboard() {
                             </tr>
                         </thead>
                         <tbody>
-                            {readings.length === 0 && !loading ? (
+                            {!Array.isArray(readings) || readings.length === 0 && !loading ? (
                                 <tr>
                                     <td colSpan="4" className="text-center" style={{ padding: '32px', color: 'var(--text-muted)' }}>
                                         {t('no_readings')}
                                     </td>
                                 </tr>
-                            ) : readings.map(r => {
+                            ) : Array.isArray(readings) && readings.map(r => {
                                 const level = parseFloat(r.water_level);
                                 const isCritical = level > 300;
                                 const isWarning = level > 250 && level <= 300;

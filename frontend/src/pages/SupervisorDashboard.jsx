@@ -244,7 +244,7 @@ export default function SupervisorDashboard() {
                             onChange={handleFilterChange}
                         >
                             <option value="">{t('all_sites')}</option>
-                            {sites.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+                            {Array.isArray(sites) && sites.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
                         </select>
                     </div>
                 </div>
@@ -324,7 +324,7 @@ export default function SupervisorDashboard() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {readings.length === 0 ? (
+                                {!Array.isArray(readings) || readings.length === 0 ? (
                                     <tr><td colSpan="6" className="text-center" style={{ padding: '32px', color: 'var(--text-muted)' }}>{t('no_readings')}</td></tr>
                                 ) : (
                                     readings.map(r => (
