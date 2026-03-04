@@ -45,7 +45,7 @@ export default function PublicDashboard() {
     return (
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingBottom: '40px' }}>
             {/* Hero Section */}
-            <div className="glass-panel text-center" style={{ marginBottom: '32px', padding: '48px 40px', background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(99, 102, 241, 0.15))', position: 'relative', overflow: 'hidden' }}>
+            <div className="glass-panel text-center" style={{ marginBottom: '32px', padding: '48px 40px', background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.15))', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'relative', zIndex: 2 }}>
                     <div style={{ display: 'inline-flex', padding: '12px', background: 'rgba(255,255,255,0.1)', borderRadius: '20px', marginBottom: '16px' }}>
                         <Globe size={40} color="var(--primary)" />
@@ -71,37 +71,37 @@ export default function PublicDashboard() {
 
             {/* Quick Stats Grid */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '32px' }}>
-                <div className="stat-card" style={{ padding: '24px', position: 'relative', overflow: 'hidden' }}>
-                    <div style={{ position: 'absolute', top: -20, right: -20, opacity: 0.1, color: 'var(--primary)' }}>
+                <div className="stat-card glass-panel" style={{ padding: '24px', position: 'relative', overflow: 'hidden', borderBottom: '2px solid var(--primary)' }}>
+                    <div style={{ position: 'absolute', top: -20, right: -20, opacity: 0.15, color: 'var(--primary)', filter: 'drop-shadow(0 0 10px var(--primary))' }}>
                         <MapPin size={100} />
                     </div>
                     <h3 style={{ margin: '0 0 8px 0', color: 'var(--text-muted)', fontSize: '1rem' }}>{t('monitored_sites')}</h3>
-                    <div style={{ fontSize: '2.5rem', fontWeight: 700 }}>
+                    <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'white' }}>
                         {loading ? '...' : sites.length}
                     </div>
-                    <div style={{ fontSize: '0.9rem', color: 'var(--success)', marginTop: '8px' }}>{t('active_responding')}</div>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--success)', marginTop: '8px', fontWeight: 500 }}>{t('active_responding')}</div>
                 </div>
 
-                <div className="stat-card" style={{ padding: '24px', position: 'relative', overflow: 'hidden' }}>
-                    <div style={{ position: 'absolute', top: -20, right: -20, opacity: 0.1, color: 'var(--primary)' }}>
+                <div className="stat-card glass-panel" style={{ padding: '24px', position: 'relative', overflow: 'hidden', borderBottom: '2px solid var(--primary)' }}>
+                    <div style={{ position: 'absolute', top: -20, right: -20, opacity: 0.15, color: 'var(--primary)', filter: 'drop-shadow(0 0 10px var(--primary))' }}>
                         <Activity size={100} />
                     </div>
                     <h3 style={{ margin: '0 0 8px 0', color: 'var(--text-muted)', fontSize: '1rem' }}>{t('total_readings')}</h3>
-                    <div style={{ fontSize: '2.5rem', fontWeight: 700 }}>
+                    <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'white' }}>
                         {loading ? '...' : readings.length}
                     </div>
-                    <div style={{ fontSize: '0.9rem', color: 'var(--primary)', marginTop: '8px' }}>{t('within_24h')}</div>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--primary)', marginTop: '8px', fontWeight: 500 }}>{t('within_24h')}</div>
                 </div>
 
-                <div className="stat-card" style={{ padding: '24px', position: 'relative', overflow: 'hidden', borderLeft: activeAlerts > 0 ? '4px solid var(--danger)' : '4px solid var(--success)' }}>
-                    <div style={{ position: 'absolute', top: -20, right: -20, opacity: 0.1, color: activeAlerts > 0 ? 'var(--danger)' : 'var(--success)' }}>
+                <div className="stat-card glass-panel" style={{ padding: '24px', position: 'relative', overflow: 'hidden', borderBottom: activeAlerts > 0 ? '2px solid var(--danger)' : '2px solid var(--success)' }}>
+                    <div style={{ position: 'absolute', top: -20, right: -20, opacity: 0.15, color: activeAlerts > 0 ? 'var(--danger)' : 'var(--success)', filter: `drop-shadow(0 0 10px ${activeAlerts > 0 ? 'var(--danger)' : 'var(--success)'})` }}>
                         <Droplets size={100} />
                     </div>
                     <h3 style={{ margin: '0 0 8px 0', color: 'var(--text-muted)', fontSize: '1rem' }}>{t('critical_levels')}</h3>
-                    <div style={{ fontSize: '2.5rem', fontWeight: 700, color: activeAlerts > 0 ? 'var(--danger)' : 'var(--success)' }}>
+                    <div style={{ fontSize: '2.8rem', fontWeight: 700, color: activeAlerts > 0 ? 'var(--danger)' : 'var(--success)', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
                         {loading ? '...' : activeAlerts}
                     </div>
-                    <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '8px' }}>{t('sites_threshold')}</div>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '8px', fontWeight: 500 }}>{t('sites_threshold')}</div>
                 </div>
             </div>
 

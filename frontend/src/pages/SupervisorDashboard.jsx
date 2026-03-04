@@ -178,7 +178,7 @@ export default function SupervisorDashboard() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingBottom: '40px' }}>
 
             {/* Hero Section */}
-            <div className="glass-panel" style={{ marginBottom: '32px', padding: '32px 40px', background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.15), rgba(99, 102, 241, 0.15))', position: 'relative', overflow: 'hidden' }}>
+            <div className="glass-panel" style={{ marginBottom: '32px', padding: '32px 40px', background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.15))', position: 'relative', overflow: 'hidden' }}>
                 <div style={{ position: 'relative', zIndex: 2 }}>
                     <h2 style={{ fontSize: '2.4rem', margin: '0 0 12px 0', fontWeight: 700 }} className="text-gradient">
                         {t('supervisor_portal')}
@@ -189,7 +189,7 @@ export default function SupervisorDashboard() {
                 </div>
 
                 {/* Decorative background element */}
-                <div style={{ position: 'absolute', right: '-5%', top: '-20%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(14,165,233,0.2) 0%, transparent 70%)', borderRadius: '50%', filter: 'blur(30px)', zIndex: 1 }} />
+                <div style={{ position: 'absolute', right: '-5%', top: '-20%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%)', borderRadius: '50%', filter: 'blur(30px)', zIndex: 1 }} />
             </div>
 
             {/* Controls Bar */}
@@ -249,17 +249,17 @@ export default function SupervisorDashboard() {
 
             {/* Analytical Stat Cards */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px', marginBottom: '28px' }}>
-                <div className="glass-panel stat-card-primary" style={{ borderTop: '3px solid var(--primary)', padding: '24px', transition: 'box-shadow 0.3s ease' }}>
+                <div className="glass-panel stat-card-primary" style={{ padding: '24px', transition: 'box-shadow 0.3s ease, transform 0.3s ease' }}>
                     <p style={{ color: 'var(--text-muted)', marginBottom: '10px', fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('total_readings')}</p>
-                    <h3 style={{ fontSize: '2.8rem', margin: 0, color: 'white', fontWeight: 700 }}>{readings.length}</h3>
+                    <h3 style={{ fontSize: '2.8rem', margin: 0, color: 'white', fontWeight: 700, textShadow: '0 2px 10px rgba(6, 182, 212, 0.3)' }}>{readings.length}</h3>
                 </div>
-                <div className="glass-panel stat-card-success" style={{ borderTop: '3px solid var(--success)', padding: '24px', transition: 'box-shadow 0.3s ease' }}>
+                <div className="glass-panel stat-card-success" style={{ padding: '24px', transition: 'box-shadow 0.3s ease, transform 0.3s ease' }}>
                     <p style={{ color: 'var(--text-muted)', marginBottom: '10px', fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('monitored_sites')}</p>
-                    <h3 style={{ fontSize: '2.8rem', margin: 0, color: 'white', fontWeight: 700 }}>{sites.length}</h3>
+                    <h3 style={{ fontSize: '2.8rem', margin: 0, color: 'white', fontWeight: 700, textShadow: '0 2px 10px rgba(16, 185, 129, 0.3)' }}>{sites.length}</h3>
                 </div>
-                <div className="glass-panel stat-card-danger" style={{ borderTop: '3px solid var(--danger)', padding: '24px', transition: 'box-shadow 0.3s ease' }}>
+                <div className="glass-panel stat-card-danger" style={{ padding: '24px', transition: 'box-shadow 0.3s ease, transform 0.3s ease' }}>
                     <p style={{ color: 'var(--text-muted)', marginBottom: '10px', fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('sec_alerts')}</p>
-                    <h3 style={{ fontSize: '2.8rem', margin: 0, color: tamperedCount > 0 ? 'var(--danger)' : 'white', fontWeight: 700 }}>{tamperedCount}</h3>
+                    <h3 style={{ fontSize: '2.8rem', margin: 0, color: tamperedCount > 0 ? 'var(--danger)' : 'white', fontWeight: 700, textShadow: tamperedCount > 0 ? '0 2px 10px rgba(239, 68, 68, 0.5)' : 'none' }}>{tamperedCount}</h3>
                 </div>
             </div>
             {/* Historical Trends Chart */}
