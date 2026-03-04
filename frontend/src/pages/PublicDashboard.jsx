@@ -33,14 +33,16 @@ export default function PublicDashboard() {
         return () => clearInterval(interval);
     }, []);
 
-    const activeAlerts = readings.filter(r => parseFloat(r.water_level) > 300).length;
+    const activeAlerts = Array.isArray(readings) ? readings.filter(r => parseFloat(r.water_level) > 300).length : 0;
 
-    // Prepare chart data (average water level per site over time, simplified for demo)
-    const chartData = [...readings].reverse().map(r => ({
-        time: new Date(r.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        level: parseFloat(r.water_level),
-        site: r.site_name
-    }));
+    // Prepare chart data safely
+    const chartData = Array.isArray(readings) && readings.length > 0
+        ? [...readings].reverse().map(r => ({
+            time: new Date(r.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            level: parseFloat(r.water_level) || 0,
+            site: r.site_name
+        }))
+        : [];
 
     return (
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingBottom: '40px' }}>
