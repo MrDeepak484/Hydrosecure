@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
-import { AlertTriangle, CheckCircle, Image as ImageIcon, Search, RefreshCw, Activity, Download, LineChart as ChartIcon, FileText, MapPin } from 'lucide-react';
+import { AlertTriangle, CheckCircle, Image as ImageIcon, Search, RefreshCw, Activity, Download, LineChart as ChartIcon, FileText } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import Papa from 'papaparse';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';

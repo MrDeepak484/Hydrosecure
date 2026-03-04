@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Activity, MapPin, Droplets, Info, Globe, ShieldCheck, LineChart as ChartIcon } from 'lucide-react';
+import { Activity, Droplets, Info, Globe, ShieldCheck, LineChart as ChartIcon } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
 export default function PublicDashboard() {
