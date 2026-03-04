@@ -72,7 +72,7 @@ export default function Login() {
                     <div style={{ marginTop: '40px' }}>
                         <button
                             type="button"
-                            onClick={() => navigate('/')}
+                            onClick={() => navigate('/public')}
                             className="btn btn-secondary"
                             style={{ padding: '12px 24px', fontSize: '0.95rem', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', display: 'inline-flex', gap: '8px' }}
                         >

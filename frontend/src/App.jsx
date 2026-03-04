@@ -82,7 +82,7 @@ function MainLayout({ children }) {
             </Link>
           )}
 
-          {user && location.pathname === '/' && (
+          {user && location.pathname === '/public' && (
             <Link to={user.role === 'FIELD' ? '/field' : '/dashboard'} className="btn btn-primary" style={{ padding: '8px 16px', borderRadius: '8px', fontSize: '0.85rem', textDecoration: 'none' }}>
               {user.role === 'FIELD' ? 'Field Portal' : 'Central Dashboard'}
             </Link>
@@ -126,7 +126,9 @@ function App() {
               </ProtectedRoute>
             } />
 
-            <Route path="/" element={<PublicDashboard />} />
+            <Route path="/public" element={<PublicDashboard />} />
+
+            <Route path="/" element={<Navigate to="/login" replace />} />
           </Routes>
         </MainLayout>
       </ErrorBoundary>
