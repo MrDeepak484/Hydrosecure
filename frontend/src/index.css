@@ -231,9 +231,44 @@ h4 {
   background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--glass-border);
+  border-radius: 16px;
   position: sticky;
   top: 0;
   z-index: 50;
+  margin-bottom: 16px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-brand-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-brand h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 800;
+  color: white;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 /* Status Badges */
@@ -311,8 +346,37 @@ h4 {
   padding: 24px;
 }
 
-/* Table row hover */
-tbody tr:hover {
+
+/* Table Row Hover & Responsive */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.data-table th {
+  color: var(--text-muted);
+  font-weight: 500;
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.data-table tbody tr:hover {
   background: rgba(14, 165, 233, 0.04);
   transition: background 0.2s ease;
 }
@@ -352,11 +416,74 @@ tbody tr:hover {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .app-container {
-    padding: 16px;
+    padding: 12px;
   }
 
   .app-header {
-    padding: 12px 16px;
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+    border-radius: 12px;
+    align-items: stretch;
+  }
+
+  .header-left {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .header-controls {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .header-brand h2 {
+    font-size: 1.1rem;
+  }
+
+  .header-brand .badge {
+    padding: 2px 4px;
+    font-size: 0.6rem;
+  }
+
+  .header-controls .btn-primary,
+  .header-controls .btn-text {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .header-controls .badge {
+    padding: 4px 8px;
+    font-size: 0.75rem;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+  }
+
+  .flex-between {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .flex-between>div {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .stat-card-primary,
+  .stat-card-success,
+  .stat-card-danger,
+  .stat-card {
+    padding: 16px;
+  }
+
+  .stat-card h3 {
+    font-size: 2rem !important;
   }
 
   .login-side-panel {

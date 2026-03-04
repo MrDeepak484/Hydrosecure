@@ -297,31 +297,31 @@ export default function SupervisorDashboard() {
                         <p style={{ color: 'var(--text-muted)' }}>{t('currently_syncing')}...</p>
                     </div>
                 ) : (
-                    <div style={{ overflowX: 'auto' }}>
-                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+                    <div className="table-responsive">
+                        <table className="data-table">
                             <thead>
-                                <tr style={{ background: 'rgba(15, 23, 42, 0.4)' }}>
-                                    <th className="p-4" style={{ color: 'var(--text-muted)', fontWeight: 500, borderBottom: '1px solid var(--glass-border)' }}>{t('timestamp')}</th>
-                                    <th className="p-4" style={{ color: 'var(--text-muted)', fontWeight: 500, borderBottom: '1px solid var(--glass-border)' }}>{t('site_location')}</th>
-                                    <th className="p-4" style={{ color: 'var(--text-muted)', fontWeight: 500, borderBottom: '1px solid var(--glass-border)' }}>{t('field_agent')}</th>
-                                    <th className="p-4" style={{ color: 'var(--text-muted)', fontWeight: 500, borderBottom: '1px solid var(--glass-border)' }}>{t('water_level')}</th>
-                                    <th className="p-4" style={{ color: 'var(--text-muted)', fontWeight: 500, borderBottom: '1px solid var(--glass-border)' }}>{t('geofence_in')}</th>
-                                    <th className="p-4" style={{ color: 'var(--text-muted)', fontWeight: 500, borderBottom: '1px solid var(--glass-border)' }}>{t('proof')}</th>
+                                <tr>
+                                    <th>{t('timestamp')}</th>
+                                    <th>{t('site_location')}</th>
+                                    <th>{t('field_agent')}</th>
+                                    <th>{t('water_level')}</th>
+                                    <th>{t('geofence_in')}</th>
+                                    <th>{t('proof')}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {readings.length === 0 ? (
-                                    <tr><td colSpan="6" className="text-center p-4">{t('no_readings')}</td></tr>
+                                    <tr><td colSpan="6" className="text-center" style={{ padding: '32px', color: 'var(--text-muted)' }}>{t('no_readings')}</td></tr>
                                 ) : (
                                     readings.map(r => (
-                                        <tr key={r.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
-                                            <td className="p-4" style={{ color: 'var(--text-muted)' }}>{new Date(r.timestamp).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })}</td>
-                                            <td className="p-4 font-bold" style={{ color: 'white' }}>{r.site_name}</td>
-                                            <td className="p-4">
+                                        <tr key={r.id}>
+                                            <td style={{ color: 'var(--text-muted)' }}>{new Date(r.timestamp).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })}</td>
+                                            <td style={{ color: 'white', fontWeight: 700 }}>{r.site_name}</td>
+                                            <td>
                                                 <span style={{ background: 'rgba(255,255,255,0.1)', padding: '4px 8px', borderRadius: '4px', fontSize: '0.85rem' }}>{r.user_name || 'Public'}</span>
                                             </td>
-                                            <td className="p-4 text-gradient" style={{ fontSize: '1.2rem', fontWeight: 700 }}>{r.water_level} cm</td>
-                                            <td className="p-4">
+                                            <td className="text-gradient" style={{ fontSize: '1.2rem', fontWeight: 700 }}>{r.water_level} cm</td>
+                                            <td>
                                                 {r.is_tampered ? (
                                                     <span className="badge badge-danger" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                                                         <AlertTriangle size={14} /> {t('tampered')}
@@ -332,7 +332,7 @@ export default function SupervisorDashboard() {
                                                     </span>
                                                 )}
                                             </td>
-                                            <td className="p-4">
+                                            <td>
                                                 {r.photo_path ? (
                                                     <a href={`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${r.photo_path}`} target="_blank" rel="noopener noreferrer" className="btn btn-text" style={{ padding: '6px 12px', color: 'white', background: 'rgba(14, 165, 233, 0.2)', border: '1px solid rgba(14, 165, 233, 0.3)' }}>
                                                         <ImageIcon size={16} /> {t('view_image')}

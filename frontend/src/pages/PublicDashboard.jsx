@@ -142,7 +142,7 @@ export default function PublicDashboard() {
                     {loading && <span style={{ color: 'var(--primary)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px' }}><div className="spinner"></div> {t('updating')}</span>}
                 </div>
 
-                <div className="table-container">
+                <div className="table-responsive">
                     <table className="data-table">
                         <thead>
                             <tr>

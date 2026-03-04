@@ -35,16 +35,16 @@ function MainLayout({ children }) {
       <div className="dam-bg-layer"></div>
       <div className="dam-bg-overlay"></div>
 
-      <header className="app-header glass-panel mb-4" style={{ borderRadius: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 24px', position: 'relative', zIndex: 10 }}>
+      <header className="app-header glass-panel">
         {/* Left: Brand */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '8px', borderRadius: '12px' }}>
+        <div className="header-left">
+          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '8px', borderRadius: '12px', flexShrink: 0 }}>
             <img src="/assets/logo.png" alt="Hydrosecure Logo" style={{ width: 38, height: 38, objectFit: 'contain' }} />
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <h2 style={{ margin: 0, fontSize: '1.25rem', textTransform: 'uppercase', letterSpacing: '2px', fontWeight: 800, color: 'white' }}>Hydrosecure</h2>
-              <span style={{ background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '4px', fontSize: '0.65rem', border: '1px solid rgba(255,255,255,0.2)', color: '#cbd5e1' }}>V2.0</span>
+          <div className="header-brand">
+            <div className="header-brand-title">
+              <h2>Hydrosecure</h2>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#cbd5e1' }}>V2.0</span>
             </div>
             {user ? (
               <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', letterSpacing: '0.5px' }}>{user.username} <span style={{ opacity: 0.5 }}>•</span> {i18n.t(user.role.toLowerCase() + '_portal') || user.role}</span>
@@ -55,7 +55,7 @@ function MainLayout({ children }) {
         </div>
 
         {/* Right: Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+        <div className="header-controls">
           {user && user.role === 'FIELD' && (
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem' }}>
               {isOnline ? (
@@ -82,7 +82,7 @@ function MainLayout({ children }) {
           )}
 
           {user && (
-            <button onClick={logout} className="btn btn-text border-white" style={{ border: '1px solid var(--glass-border)', padding: '8px 16px', borderRadius: '8px', fontSize: '0.85rem', letterSpacing: '0.5px' }}>
+            <button onClick={logout} className="btn btn-text" style={{ border: '1px solid var(--glass-border)', borderRadius: '8px', letterSpacing: '0.5px' }}>
               {t('logout')}
             </button>
           )}
