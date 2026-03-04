@@ -8,6 +8,7 @@ import SupervisorDashboard from './pages/SupervisorDashboard';
 import PublicDashboard from './pages/PublicDashboard';
 import { useSync } from './hooks/useSync';
 import { Wifi, WifiOff, Globe } from 'lucide-react';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function ProtectedRoute({ children, allowedRoles }) {
   const { user } = useContext(AuthContext);
@@ -102,28 +103,29 @@ function App() {
 
   return (
     <BrowserRouter>
-      <MainLayout>
-        <Routes>
-          <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+      <ErrorBoundary>
+        <MainLayout>
+          <Routes>
+            <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
 
-          <Route path="/field" element={
-            <ProtectedRoute allowedRoles={['FIELD', 'SUPERVISOR', 'ADMIN']}>
-              <FieldPortal />
-            </ProtectedRoute>
-          } />
+            <Route path="/field" element={
+              <ProtectedRoute allowedRoles={['FIELD', 'SUPERVISOR', 'ADMIN']}>
+                <FieldPortal />
+              </ProtectedRoute>
+            } />
 
-          <Route path="/dashboard" element={
-            <ProtectedRoute allowedRoles={['SUPERVISOR', 'ADMIN']}>
-              <SupervisorDashboard />
-            </ProtectedRoute>
-          } />
+            <Route path="/dashboard" element={
+              <ProtectedRoute allowedRoles={['SUPERVISOR', 'ADMIN']}>
+                <SupervisorDashboard />
+              </ProtectedRoute>
+            } />
 
-          <Route path="/" element={
-            user ? (user.role === 'FIELD' ? <Navigate to="/field" /> : <Navigate to="/dashboard" />) : <PublicDashboard />
-          } />
-        </Routes>
-      </MainLayout>
-
+            <Route path="/" element={
+              user ? (user.role === 'FIELD' ? <Navigate to="/field" /> : <Navigate to="/dashboard" />) : <PublicDashboard />
+            } />
+          </Routes>
+        </MainLayout>
+      </ErrorBoundary>
     </BrowserRouter>
   );
 }
