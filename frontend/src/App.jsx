@@ -82,6 +82,12 @@ function MainLayout({ children }) {
             </Link>
           )}
 
+          {user && location.pathname === '/' && (
+            <Link to={user.role === 'FIELD' ? '/field' : '/dashboard'} className="btn btn-primary" style={{ padding: '8px 16px', borderRadius: '8px', fontSize: '0.85rem', textDecoration: 'none' }}>
+              {user.role === 'FIELD' ? 'Field Portal' : 'Central Dashboard'}
+            </Link>
+          )}
+
           {user && (
             <button onClick={logout} className="btn btn-text" style={{ border: '1px solid var(--glass-border)', borderRadius: '8px', letterSpacing: '0.5px' }}>
               {t('logout')}
@@ -106,7 +112,7 @@ function App() {
       <ErrorBoundary>
         <MainLayout>
           <Routes>
-            <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+            <Route path="/login" element={user ? (user.role === 'FIELD' ? <Navigate to="/field" /> : <Navigate to="/dashboard" />) : <Login />} />
 
             <Route path="/field" element={
               <ProtectedRoute allowedRoles={['FIELD', 'SUPERVISOR', 'ADMIN']}>
@@ -120,9 +126,7 @@ function App() {
               </ProtectedRoute>
             } />
 
-            <Route path="/" element={
-              user ? (user.role === 'FIELD' ? <Navigate to="/field" /> : <Navigate to="/dashboard" />) : <PublicDashboard />
-            } />
+            <Route path="/" element={<PublicDashboard />} />
           </Routes>
         </MainLayout>
       </ErrorBoundary>
