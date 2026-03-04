@@ -282,7 +282,7 @@ export default function SupervisorDashboard() {
                 <h3 style={{ margin: '0 0 20px 0', fontSize: 'clamp(1rem, 3vw, 1.2rem)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <ChartIcon size={20} color="var(--primary)" /> {t('regional_trends')}
                 </h3>
-                <div style={{ height: 'clamp(200px, 40vh, 300px)', width: '100%', minWidth: '300px' }}>
+                <div style={{ height: 'clamp(200px, 40vh, 300px)', width: '100%', minWidth: '100%' }}>
                     {readings.length > 0 ? (
                         <ResponsiveContainer width="100%" height="100%">
                             <LineChart data={chartData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
