@@ -8,5 +8,15 @@ export default defineConfig({
     host: true, // Listen on all local IPs
     port: 5173,
     strictPort: true, // Fail if port is in use
+  },
+  build: {
+    chunkSizeWarningLimit: 2000, // Increase warning limit to 2MB
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom', 'recharts', 'jspdf', 'axios'],
+        }
+      }
+    }
   }
 })
