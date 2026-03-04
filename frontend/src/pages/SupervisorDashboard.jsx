@@ -21,7 +21,7 @@ export default function SupervisorDashboard() {
         try {
             const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
             const res = await axios.get(`${API_BASE_URL}/api/sites`);
-            setSites(res.data);
+            setSites(Array.isArray(res.data) ? res.data : []);
         } catch (err) {
             console.error(err);
         }
@@ -33,7 +33,7 @@ export default function SupervisorDashboard() {
             const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
             const url = siteId ? `${API_BASE_URL}/api/readings?site_id=${siteId}` : `${API_BASE_URL}/api/readings`;
             const res = await axios.get(url);
-            setReadings(res.data);
+            setReadings(Array.isArray(res.data) ? res.data : []);
             setLastRefreshed(new Date());
         } catch (err) {
             console.error(err);

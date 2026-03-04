@@ -19,8 +19,8 @@ export default function PublicDashboard() {
                     axios.get(`${API_BASE_URL}/api/public/readings`),
                     axios.get(`${API_BASE_URL}/api/public/sites`)
                 ]);
-                setReadings(readingsRes.data);
-                setSites(sitesRes.data);
+                setReadings(Array.isArray(readingsRes.data) ? readingsRes.data : []);
+                setSites(Array.isArray(sitesRes.data) ? sitesRes.data : []);
             } catch (err) {
                 console.error("Failed to fetch public data", err);
             } finally {
