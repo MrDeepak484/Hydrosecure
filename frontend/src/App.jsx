@@ -35,11 +35,11 @@ function MainLayout({ children }) {
       <div className="dam-bg-layer"></div>
       <div className="dam-bg-overlay"></div>
 
-      <header className="app-header glass-panel">
+      <header className="app-header glass-panel" style={{ margin: '20px auto', maxWidth: '1160px', borderRadius: '999px', padding: '12px 24px', position: 'sticky', top: '20px', zIndex: 100 }}>
         {/* Left: Brand */}
         <div className="header-left">
-          <div style={{ background: 'rgba(255,255,255,0.05)', padding: '8px', borderRadius: '12px', flexShrink: 0 }}>
-            <img src="/assets/logo.png" alt="Hydrosecure Logo" style={{ width: 38, height: 38, objectFit: 'contain' }} />
+          <div style={{ background: 'linear-gradient(135deg, rgba(0,246,255,0.1), rgba(93,0,255,0.1))', padding: '8px', borderRadius: '50%', flexShrink: 0, border: '1px solid rgba(0,246,255,0.2)' }}>
+            <img src="/assets/logo.png" alt="Hydrosecure Logo" style={{ width: 34, height: 34, objectFit: 'contain', filter: 'drop-shadow(0 0 8px rgba(0,246,255,0.5))' }} />
           </div>
           <div className="header-brand">
             <div className="header-brand-title">

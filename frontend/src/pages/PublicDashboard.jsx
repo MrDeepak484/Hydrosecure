@@ -45,63 +45,63 @@ export default function PublicDashboard() {
     return (
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingBottom: '40px' }}>
             {/* Hero Section */}
-            <div className="glass-panel text-center" style={{ marginBottom: '32px', padding: '48px 40px', background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.15))', position: 'relative', overflow: 'hidden' }}>
+            <div className="glass-panel text-center" style={{ marginBottom: '32px', padding: '48px 40px', background: 'linear-gradient(135deg, rgba(0, 246, 255, 0.1), rgba(93, 0, 255, 0.15))', position: 'relative', overflow: 'hidden', borderBottom: '1px solid rgba(0,246,255,0.2)' }}>
                 <div style={{ position: 'relative', zIndex: 2 }}>
-                    <div style={{ display: 'inline-flex', padding: '12px', background: 'rgba(255,255,255,0.1)', borderRadius: '20px', marginBottom: '16px' }}>
-                        <Globe size={40} color="var(--primary)" />
+                    <div className="animate-pulse-glow" style={{ display: 'inline-flex', padding: '16px', background: 'linear-gradient(135deg, rgba(0,246,255,0.1), rgba(93,0,255,0.1))', borderRadius: '50%', marginBottom: '24px', border: '1px solid rgba(0,246,255,0.4)', boxShadow: '0 0 30px rgba(0,246,255,0.3)' }}>
+                        <Globe size={48} color="var(--primary)" />
                     </div>
-                    <h1 style={{ fontSize: '3rem', margin: '0 0 16px 0', fontWeight: 800 }} className="text-gradient">
-                        Hydrosecure
+                    <h1 style={{ fontSize: '3.5rem', margin: '0 0 16px 0', fontWeight: 800, letterSpacing: '-1px' }} className="premium-text-glow">
+                        <span className="text-gradient">Hydrosecure</span>
                     </h1>
-                    <p style={{ margin: '0 auto', color: 'var(--text-muted)', fontSize: '1.15rem', maxWidth: '700px', lineHeight: '1.6' }}>
+                    <p style={{ margin: '0 auto', color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '700px', lineHeight: '1.6' }}>
                         {t('public_subtitle')}
                     </p>
 
-                    <div style={{ marginTop: '32px', display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-                        <Link to="/login" className="btn btn-primary" style={{ padding: '12px 24px', fontSize: '1.05rem', gap: '8px' }}>
-                            <ShieldCheck size={20} /> {t('access_portal')}
+                    <div style={{ marginTop: '40px', display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+                        <Link to="/login" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '1.1rem', gap: '10px', boxShadow: '0 0 30px rgba(0,246,255,0.5)', borderRadius: '999px' }}>
+                            <ShieldCheck size={22} /> {t('access_portal')}
                         </Link>
                     </div>
                 </div>
 
-                {/* Decorative background element */}
-                <div style={{ position: 'absolute', left: '-5%', top: '-20%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%)', borderRadius: '50%', filter: 'blur(40px)', zIndex: 1 }} />
-                <div style={{ position: 'absolute', right: '-5%', bottom: '-20%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)', borderRadius: '50%', filter: 'blur(40px)', zIndex: 1 }} />
+                {/* Decorative background orbs */}
+                <div style={{ position: 'absolute', left: '-10%', top: '-30%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(0,246,255,0.15) 0%, transparent 60%)', borderRadius: '50%', filter: 'blur(50px)', zIndex: 1 }} />
+                <div style={{ position: 'absolute', right: '-10%', bottom: '-30%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(93,0,255,0.15) 0%, transparent 60%)', borderRadius: '50%', filter: 'blur(50px)', zIndex: 1 }} />
             </div>
 
             {/* Quick Stats Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', marginBottom: '32px' }}>
-                <div className="stat-card glass-panel" style={{ padding: '24px', position: 'relative', overflow: 'hidden', borderBottom: '2px solid var(--primary)' }}>
-                    <div style={{ position: 'absolute', top: -20, right: -20, opacity: 0.15, color: 'var(--primary)', filter: 'drop-shadow(0 0 10px var(--primary))' }}>
-                        <MapPin size={100} />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginBottom: '32px' }}>
+                <div className="stat-card glass-panel" style={{ padding: '32px 24px', position: 'relative', overflow: 'hidden', borderBottom: '2px solid rgba(0,246,255,0.5)', background: 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(0,246,255,0.05) 100%)' }}>
+                    <div style={{ position: 'absolute', top: -10, right: -10, opacity: 0.1, color: 'var(--primary)', filter: 'drop-shadow(0 0 15px var(--primary))' }}>
+                        <MapPin size={120} />
                     </div>
-                    <h3 style={{ margin: '0 0 8px 0', color: 'var(--text-muted)', fontSize: '1rem' }}>{t('monitored_sites')}</h3>
-                    <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'white' }}>
+                    <h3 style={{ margin: '0 0 12px 0', color: 'var(--text-muted)', fontSize: '1.05rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('monitored_sites')}</h3>
+                    <div style={{ fontSize: '3rem', fontWeight: 700, color: 'white', textShadow: '0 0 20px rgba(0,246,255,0.5)' }}>
                         {loading ? '...' : sites.length}
                     </div>
-                    <div style={{ fontSize: '0.9rem', color: 'var(--success)', marginTop: '8px', fontWeight: 500 }}>{t('active_responding')}</div>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--success)', marginTop: '8px', fontWeight: 600 }}>{t('active_responding')}</div>
                 </div>
 
-                <div className="stat-card glass-panel" style={{ padding: '24px', position: 'relative', overflow: 'hidden', borderBottom: '2px solid var(--primary)' }}>
-                    <div style={{ position: 'absolute', top: -20, right: -20, opacity: 0.15, color: 'var(--primary)', filter: 'drop-shadow(0 0 10px var(--primary))' }}>
-                        <Activity size={100} />
+                <div className="stat-card glass-panel" style={{ padding: '32px 24px', position: 'relative', overflow: 'hidden', borderBottom: '2px solid rgba(0,246,255,0.5)', background: 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(0,246,255,0.05) 100%)' }}>
+                    <div style={{ position: 'absolute', top: -10, right: -10, opacity: 0.1, color: 'var(--primary)', filter: 'drop-shadow(0 0 15px var(--primary))' }}>
+                        <Activity size={120} />
                     </div>
-                    <h3 style={{ margin: '0 0 8px 0', color: 'var(--text-muted)', fontSize: '1rem' }}>{t('total_readings')}</h3>
-                    <div style={{ fontSize: '2.5rem', fontWeight: 700, color: 'white' }}>
+                    <h3 style={{ margin: '0 0 12px 0', color: 'var(--text-muted)', fontSize: '1.05rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('total_readings')}</h3>
+                    <div style={{ fontSize: '3rem', fontWeight: 700, color: 'white', textShadow: '0 0 20px rgba(0,246,255,0.5)' }}>
                         {loading ? '...' : readings.length}
                     </div>
-                    <div style={{ fontSize: '0.9rem', color: 'var(--primary)', marginTop: '8px', fontWeight: 500 }}>{t('within_24h')}</div>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--primary)', marginTop: '8px', fontWeight: 600 }}>{t('within_24h')}</div>
                 </div>
 
-                <div className="stat-card glass-panel" style={{ padding: '24px', position: 'relative', overflow: 'hidden', borderBottom: activeAlerts > 0 ? '2px solid var(--danger)' : '2px solid var(--success)' }}>
-                    <div style={{ position: 'absolute', top: -20, right: -20, opacity: 0.15, color: activeAlerts > 0 ? 'var(--danger)' : 'var(--success)', filter: `drop-shadow(0 0 10px ${activeAlerts > 0 ? 'var(--danger)' : 'var(--success)'})` }}>
-                        <Droplets size={100} />
+                <div className="stat-card glass-panel" style={{ padding: '32px 24px', position: 'relative', overflow: 'hidden', borderBottom: activeAlerts > 0 ? '2px solid var(--danger)' : '2px solid var(--success)', background: activeAlerts > 0 ? 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(239,68,68,0.08) 100%)' : 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(16,185,129,0.05) 100%)' }}>
+                    <div style={{ position: 'absolute', top: -10, right: -10, opacity: 0.1, color: activeAlerts > 0 ? 'var(--danger)' : 'var(--success)', filter: `drop-shadow(0 0 15px ${activeAlerts > 0 ? 'var(--danger)' : 'var(--success)'})` }}>
+                        <Droplets size={120} />
                     </div>
-                    <h3 style={{ margin: '0 0 8px 0', color: 'var(--text-muted)', fontSize: '1rem' }}>{t('critical_levels')}</h3>
-                    <div style={{ fontSize: '2.8rem', fontWeight: 700, color: activeAlerts > 0 ? 'var(--danger)' : 'var(--success)', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+                    <h3 style={{ margin: '0 0 12px 0', color: 'var(--text-muted)', fontSize: '1.05rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('critical_levels')}</h3>
+                    <div style={{ fontSize: '3rem', fontWeight: 700, color: activeAlerts > 0 ? 'var(--danger)' : 'var(--success)', textShadow: `0 0 20px ${activeAlerts > 0 ? 'rgba(239,68,68,0.5)' : 'rgba(16,185,129,0.5)'}` }}>
                         {loading ? '...' : activeAlerts}
                     </div>
-                    <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '8px', fontWeight: 500 }}>{t('sites_threshold')}</div>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '8px', fontWeight: 600 }}>{t('sites_threshold')}</div>
                 </div>
             </div>
 
@@ -134,22 +134,23 @@ export default function PublicDashboard() {
             </div>
 
             {/* Latest Readings Table */}
-            <div className="glass-panel" style={{ padding: '24px' }}>
-                <div className="flex-between" style={{ marginBottom: '20px' }}>
-                    <h3 style={{ margin: 0, fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Activity size={20} color="var(--primary)" /> {t('live_updates')}
+            <div className="glass-panel" style={{ padding: 0, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="flex-between" style={{ padding: '24px', borderBottom: '1px solid rgba(255,255,255,0.05)', background: 'rgba(255,255,255,0.02)' }}>
+                    <h3 style={{ margin: 0, fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '12px', fontWeight: 600, letterSpacing: '0.5px' }}>
+                        <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--primary)', boxShadow: '0 0 10px var(--primary)', animation: 'pulse 2s infinite' }}></div>
+                        {t('live_updates')}
                     </h3>
-                    {loading && <span style={{ color: 'var(--primary)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '6px' }}><div className="spinner"></div> {t('updating')}</span>}
+                    {loading && <span style={{ color: 'var(--primary)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 500 }}><div className="spinner"></div> {t('updating')}</span>}
                 </div>
 
                 <div className="table-responsive">
-                    <table className="data-table">
+                    <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                         <thead>
-                            <tr>
-                                <th>{t('site_location')}</th>
-                                <th>{t('water_level')}</th>
-                                <th>{t('timestamp')}</th>
-                                <th>{t('proof')}</th>
+                            <tr style={{ background: 'rgba(0,0,0,0.2)' }}>
+                                <th style={{ padding: '16px 24px', color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('site_location')}</th>
+                                <th style={{ padding: '16px 24px', color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('water_level')}</th>
+                                <th style={{ padding: '16px 24px', color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('timestamp')}</th>
+                                <th style={{ padding: '16px 24px', color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('proof')}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -165,30 +166,40 @@ export default function PublicDashboard() {
                                 const isWarning = level > 250 && level <= 300;
 
                                 return (
-                                    <tr key={r.id}>
-                                        <td style={{ fontWeight: 500 }}>
-                                            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                                <MapPin size={14} color="var(--text-muted)" /> {r.site_name}
+                                    <tr key={r.id} style={{ transition: 'background 0.2s ease' }} onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.02)'} onMouseOut={e => e.currentTarget.style.background = 'transparent'}>
+                                        <td style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,0.03)', fontWeight: 500 }}>
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                                <MapPin size={16} color="var(--primary)" opacity={0.7} /> {r.site_name}
                                             </div>
                                         </td>
-                                        <td>
+                                        <td style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
                                             <span style={{
                                                 color: isCritical ? 'var(--danger)' : (isWarning ? 'var(--warning)' : 'var(--success)'),
                                                 fontWeight: 700,
-                                                fontSize: '1.1rem'
+                                                fontSize: '1.15rem',
+                                                textShadow: `0 0 10px ${isCritical ? 'rgba(239, 68, 68, 0.4)' : (isWarning ? 'rgba(245, 158, 11, 0.4)' : 'rgba(16, 185, 129, 0.4)')}`
                                             }}>
                                                 {r.water_level} cm
                                             </span>
                                         </td>
-                                        <td>{new Date(r.timestamp).toLocaleString()}</td>
-                                        <td>
+                                        <td style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
+                                            <span style={{ fontSize: '0.9rem', opacity: 0.8, fontFamily: 'monospace' }}>
+                                                {new Date(r.timestamp).toLocaleString(undefined, {
+                                                    month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+                                                })}
+                                            </span>
+                                        </td>
+                                        <td style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
                                             {r.photo_path ? (
                                                 <a href={`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${r.photo_path}`} target="_blank" rel="noreferrer"
-                                                    style={{ display: 'inline-flex', padding: '6px 12px', background: 'rgba(255,255,255,0.05)', borderRadius: '6px', fontSize: '0.85rem', color: 'white', textDecoration: 'none', alignItems: 'center', gap: '6px' }}>
+                                                    style={{ display: 'inline-flex', padding: '8px 14px', background: 'rgba(0,246,255,0.1)', borderRadius: '999px', fontSize: '0.85rem', color: 'var(--primary)', fontWeight: 600, textDecoration: 'none', alignItems: 'center', gap: '6px', border: '1px solid rgba(0,246,255,0.2)', transition: 'all 0.2s ease' }}
+                                                    onMouseOver={e => { e.currentTarget.style.background = 'rgba(0,246,255,0.2)'; e.currentTarget.style.boxShadow = '0 0 15px rgba(0,246,255,0.3)'; }}
+                                                    onMouseOut={e => { e.currentTarget.style.background = 'rgba(0,246,255,0.1)'; e.currentTarget.style.boxShadow = 'none'; }}
+                                                >
                                                     <Info size={14} /> {t('view_image')}
                                                 </a>
                                             ) : (
-                                                <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>{t('no_image')}</span>
+                                                <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontStyle: 'italic' }}>{t('no_image')}</span>
                                             )}
                                         </td>
                                     </tr>

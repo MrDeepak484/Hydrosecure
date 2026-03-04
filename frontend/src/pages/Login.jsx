@@ -40,33 +40,40 @@ export default function Login() {
 
     return (
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh', padding: '20px' }}>
-            <div className="glass-panel animate-fade-in" style={{ width: '100%', maxWidth: '920px', display: 'flex', overflow: 'hidden', padding: 0 }}>
+            <div className="glass-panel animate-fade-in" style={{ width: '100%', maxWidth: '920px', display: 'flex', overflow: 'hidden', padding: 0, position: 'relative' }}>
+                {/* Decorative glows inside panel */}
+                <div style={{ position: 'absolute', top: '-10%', left: '-10%', width: '40%', height: '50%', background: 'radial-gradient(circle, rgba(0,246,255,0.1) 0%, transparent 60%)', filter: 'blur(40px)', zIndex: 0 }} />
+                <div style={{ position: 'absolute', bottom: '-10%', right: '-10%', width: '40%', height: '50%', background: 'radial-gradient(circle, rgba(93,0,255,0.1) 0%, transparent 60%)', filter: 'blur(40px)', zIndex: 0 }} />
 
                 {/* Visual Side Panel */}
-                <div className="login-side-panel" style={{ flex: 1, background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.35), rgba(99, 102, 241, 0.45))', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '48px', borderRight: '1px solid var(--glass-border)' }}>
+                <div className="login-side-panel" style={{ flex: 1, background: 'linear-gradient(135deg, rgba(0, 246, 255, 0.05), rgba(93, 0, 255, 0.1))', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '48px', borderRight: '1px solid var(--glass-border)', position: 'relative', zIndex: 1 }}>
                     <div style={{ marginBottom: '24px' }}>
-                        <img src="/assets/logo.png" alt="Hydrosecure Logo" style={{ width: 90, height: 90, objectFit: 'contain', filter: 'drop-shadow(0px 4px 20px rgba(14,165,233,0.5))' }} />
+                        <div style={{ display: 'inline-flex', padding: '12px', background: 'linear-gradient(135deg, rgba(0,246,255,0.1), rgba(93,0,255,0.1))', borderRadius: '50%', border: '1px solid rgba(0,246,255,0.3)', boxShadow: '0 0 20px rgba(0,246,255,0.2)' }}>
+                            <img src="/assets/logo.png" alt="Hydrosecure Logo" style={{ width: 80, height: 80, objectFit: 'contain', filter: 'drop-shadow(0px 0px 15px rgba(0,246,255,0.6))' }} />
+                        </div>
                     </div>
-                    <h1 style={{ fontSize: '2.4rem', lineHeight: '1.2', marginBottom: '16px', textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
-                        Water Security.<br /><span className="text-gradient">Engineered.</span>
+                    <h1 style={{ fontSize: '2.4rem', lineHeight: '1.2', marginBottom: '16px', fontWeight: 700 }} className="premium-text-glow">
+                        Water Security.<br /><span className="text-gradient" style={{ fontWeight: 800 }}>Engineered.</span>
                     </h1>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: '1.7', marginBottom: '32px' }}>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.6', marginBottom: '32px' }}>
                         Hydrosecure is the premium standard for real-time dam and water level monitoring across India.
                     </p>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                         {features.map((f, i) => (
-                            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--text-muted)', fontSize: '0.95rem' }}>
-                                <span style={{ color: 'var(--primary)', flexShrink: 0 }}>{f.icon}</span>
+                            <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--text-main)', fontSize: '0.95rem' }}>
+                                <div style={{ color: 'var(--primary)', flexShrink: 0, padding: '8px', background: 'rgba(0,246,255,0.1)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 10px rgba(0,246,255,0.2)' }}>
+                                    {f.icon}
+                                </div>
                                 {f.text}
                             </div>
                         ))}
                     </div>
-                    
+
                     <div style={{ marginTop: '40px' }}>
-                        <button 
-                            type="button" 
+                        <button
+                            type="button"
                             onClick={() => navigate('/')}
-                            className="btn btn-secondary" 
+                            className="btn btn-secondary"
                             style={{ padding: '12px 24px', fontSize: '0.95rem', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.15)', display: 'inline-flex', gap: '8px' }}
                         >
                             <Globe size={18} /> View Public Dashboard
@@ -75,67 +82,68 @@ export default function Login() {
                 </div>
 
                 {/* Login Form Side */}
-                <div style={{ flex: 1, padding: '48px 40px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <div className="animate-pulse-glow" style={{ margin: '0 auto 24px', width: '64px', height: '64px', borderRadius: '18px', background: 'linear-gradient(135deg, var(--primary), var(--secondary))', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Lock color="white" size={30} />
+                <div style={{ flex: 1, padding: '48px 40px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', zIndex: 1 }}>
+                    <div className="animate-pulse-glow" style={{ margin: '0 auto 24px', width: '64px', height: '64px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(0,246,255,0.2), rgba(93,0,255,0.2))', border: '1px solid rgba(0,246,255,0.4)', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: '0 0 20px rgba(0,246,255,0.3)' }}>
+                        <Lock color="var(--primary)" size={28} />
                     </div>
-                    <h2 style={{ marginBottom: '6px', fontSize: '1.6rem' }}>{t('login_title')}</h2>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '32px', fontSize: '0.9rem' }}>Welcome back. Please enter your credentials.</p>
+                    <h2 style={{ marginBottom: '6px', fontSize: '1.6rem', fontWeight: 600 }}>{t('login_title')}</h2>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '32px', fontSize: '0.95rem' }}>Welcome back. Please enter your credentials.</p>
 
                     <form onSubmit={handleLogin} style={{ textAlign: 'left' }}>
                         <div className="input-group">
-                            <label style={{ fontWeight: 500 }}>{t('username')}</label>
+                            <label style={{ fontWeight: 500, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)' }}>{t('username')}</label>
                             <input
                                 type="text"
                                 className="input-control w-full"
                                 placeholder="e.g. admin"
                                 value={username}
                                 onChange={e => setUsername(e.target.value)}
+                                style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }}
                                 required
                             />
                         </div>
-                        <div className="input-group" style={{ marginTop: '4px' }}>
-                            <label style={{ fontWeight: 500 }}>{t('password')}</label>
+                        <div className="input-group" style={{ marginTop: '8px' }}>
+                            <label style={{ fontWeight: 500, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)' }}>{t('password')}</label>
                             <input
                                 type="password"
                                 className="input-control w-full"
                                 placeholder="••••••••"
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
+                                style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }}
                                 required
                             />
                         </div>
 
                         {error && (
-                            <div className="badge badge-danger" style={{ marginBottom: '12px', marginTop: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', padding: '10px 16px', borderRadius: '10px' }}>
+                            <div className="badge badge-danger" style={{ marginBottom: '12px', marginTop: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', padding: '12px 16px', borderRadius: '12px', boxShadow: '0 0 15px rgba(239, 68, 68, 0.3)' }}>
                                 ⚠️ {error}
                             </div>
                         )}
 
-                        <button type="submit" className="btn btn-primary w-full" disabled={isLoading} style={{ marginTop: '20px', padding: '14px', fontSize: '1rem' }}>
+                        <button type="submit" className="btn btn-primary w-full" disabled={isLoading} style={{ marginTop: '24px', padding: '16px', fontSize: '1.05rem', boxShadow: '0 0 20px rgba(0,246,255,0.4)', borderRadius: '12px' }}>
                             {isLoading ? '⏳ Authenticating...' : t('login_btn')}
                         </button>
                     </form>
 
                     {/* Demo Accounts */}
-                    <div style={{ marginTop: '32px', borderTop: '1px solid var(--glass-border)', paddingTop: '24px' }}>
+                    <div style={{ marginTop: '32px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '24px' }}>
                         <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Demo Accounts</p>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                             {demoAccounts.map(acc => (
                                 <button
                                     key={acc.user}
                                     type="button"
                                     onClick={() => { setUsername(acc.user); setPassword(acc.pass); }}
-                                    style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '10px', padding: '10px 14px', color: 'var(--text-muted)', fontSize: '0.82rem', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'all 0.2s' }}
-                                    onMouseOver={e => e.currentTarget.style.background = 'rgba(14,165,233,0.1)'}
-                                    onMouseOut={e => e.currentTarget.style.background = 'rgba(255,255,255,0.04)'}
+                                    style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '12px 16px', color: 'var(--text-muted)', fontSize: '0.85rem', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)' }}
+                                    onMouseOver={e => { e.currentTarget.style.background = 'rgba(0,246,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(0,246,255,0.2)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
+                                    onMouseOut={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
                                 >
-                                    <span>{acc.label}</span>
-                                    <span style={{ fontFamily: 'monospace', opacity: 0.6 }}>{acc.user} / {acc.pass}</span>
+                                    <span style={{ fontWeight: 500, color: 'white' }}>{acc.label}</span>
+                                    <span style={{ fontFamily: 'monospace', opacity: 0.8, color: 'var(--primary)' }}>{acc.user} / {acc.pass}</span>
                                 </button>
                             ))}
                         </div>
-                        <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '10px', opacity: 0.6 }}>Click any account to auto-fill credentials</p>
                     </div>
                 </div>
             </div>

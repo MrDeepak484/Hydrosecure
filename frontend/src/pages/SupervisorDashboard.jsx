@@ -178,18 +178,19 @@ export default function SupervisorDashboard() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', paddingBottom: '40px' }}>
 
             {/* Hero Section */}
-            <div className="glass-panel" style={{ marginBottom: '32px', padding: '32px 40px', background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.15))', position: 'relative', overflow: 'hidden' }}>
+            <div className="glass-panel" style={{ marginBottom: '32px', padding: '40px', background: 'linear-gradient(135deg, rgba(0, 246, 255, 0.1), rgba(93, 0, 255, 0.15))', position: 'relative', overflow: 'hidden', borderBottom: '1px solid rgba(0,246,255,0.2)' }}>
                 <div style={{ position: 'relative', zIndex: 2 }}>
-                    <h2 style={{ fontSize: '2.4rem', margin: '0 0 12px 0', fontWeight: 700 }} className="text-gradient">
-                        {t('supervisor_portal')}
+                    <h2 style={{ fontSize: '2.8rem', margin: '0 0 16px 0', fontWeight: 800, letterSpacing: '-0.5px' }} className="premium-text-glow">
+                        <span className="text-gradient">{t('supervisor_portal')}</span>
                     </h2>
-                    <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '1.05rem', maxWidth: '600px', lineHeight: '1.6' }}>
+                    <p style={{ margin: 0, color: 'var(--text-muted)', fontSize: '1.15rem', maxWidth: '600px', lineHeight: '1.6' }}>
                         {t('supervisor_desc')}
                     </p>
                 </div>
 
-                {/* Decorative background element */}
-                <div style={{ position: 'absolute', right: '-5%', top: '-20%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%)', borderRadius: '50%', filter: 'blur(30px)', zIndex: 1 }} />
+                {/* Decorative background orbs */}
+                <div style={{ position: 'absolute', right: '-10%', top: '-30%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(93,0,255,0.2) 0%, transparent 60%)', borderRadius: '50%', filter: 'blur(50px)', zIndex: 1 }} />
+                <div style={{ position: 'absolute', right: '20%', bottom: '-40%', width: '300px', height: '300px', background: 'radial-gradient(circle, rgba(0,246,255,0.15) 0%, transparent 60%)', borderRadius: '50%', filter: 'blur(50px)', zIndex: 1 }} />
             </div>
 
             {/* Controls Bar */}
@@ -248,18 +249,29 @@ export default function SupervisorDashboard() {
             </div>
 
             {/* Analytical Stat Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px', marginBottom: '28px' }}>
-                <div className="glass-panel stat-card-primary" style={{ padding: '24px', transition: 'box-shadow 0.3s ease, transform 0.3s ease' }}>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '10px', fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('total_readings')}</p>
-                    <h3 style={{ fontSize: '2.8rem', margin: 0, color: 'white', fontWeight: 700, textShadow: '0 2px 10px rgba(6, 182, 212, 0.3)' }}>{readings.length}</h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginBottom: '32px' }}>
+                <div className="stat-card glass-panel" style={{ padding: '32px 24px', position: 'relative', overflow: 'hidden', borderBottom: '2px solid rgba(0,246,255,0.5)', background: 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(0,246,255,0.05) 100%)' }}>
+                    <div style={{ position: 'absolute', top: -10, right: -10, opacity: 0.1, color: 'var(--primary)', filter: 'drop-shadow(0 0 15px var(--primary))' }}>
+                        <Activity size={120} />
+                    </div>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '12px', fontSize: '1.05rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('total_readings')}</p>
+                    <h3 style={{ fontSize: '3rem', margin: 0, color: 'white', fontWeight: 700, textShadow: '0 0 20px rgba(0,246,255,0.5)' }}>{readings.length}</h3>
                 </div>
-                <div className="glass-panel stat-card-success" style={{ padding: '24px', transition: 'box-shadow 0.3s ease, transform 0.3s ease' }}>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '10px', fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('monitored_sites')}</p>
-                    <h3 style={{ fontSize: '2.8rem', margin: 0, color: 'white', fontWeight: 700, textShadow: '0 2px 10px rgba(16, 185, 129, 0.3)' }}>{sites.length}</h3>
+
+                <div className="stat-card glass-panel" style={{ padding: '32px 24px', position: 'relative', overflow: 'hidden', borderBottom: '2px solid rgba(16,185,129,0.5)', background: 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(16,185,129,0.05) 100%)' }}>
+                    <div style={{ position: 'absolute', top: -10, right: -10, opacity: 0.1, color: 'var(--success)', filter: 'drop-shadow(0 0 15px var(--success))' }}>
+                        <MapPin size={120} />
+                    </div>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '12px', fontSize: '1.05rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('monitored_sites')}</p>
+                    <h3 style={{ fontSize: '3rem', margin: 0, color: 'white', fontWeight: 700, textShadow: '0 0 20px rgba(16,185,129,0.5)' }}>{sites.length}</h3>
                 </div>
-                <div className="glass-panel stat-card-danger" style={{ padding: '24px', transition: 'box-shadow 0.3s ease, transform 0.3s ease' }}>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '10px', fontSize: '0.88rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('sec_alerts')}</p>
-                    <h3 style={{ fontSize: '2.8rem', margin: 0, color: tamperedCount > 0 ? 'var(--danger)' : 'white', fontWeight: 700, textShadow: tamperedCount > 0 ? '0 2px 10px rgba(239, 68, 68, 0.5)' : 'none' }}>{tamperedCount}</h3>
+
+                <div className="stat-card glass-panel" style={{ padding: '32px 24px', position: 'relative', overflow: 'hidden', borderBottom: tamperedCount > 0 ? '2px solid var(--danger)' : '2px solid rgba(16,185,129,0.5)', background: tamperedCount > 0 ? 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(239,68,68,0.08) 100%)' : 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(16,185,129,0.05) 100%)' }}>
+                    <div style={{ position: 'absolute', top: -10, right: -10, opacity: 0.1, color: tamperedCount > 0 ? 'var(--danger)' : 'var(--success)', filter: `drop-shadow(0 0 15px ${tamperedCount > 0 ? 'var(--danger)' : 'var(--success)'})` }}>
+                        <AlertTriangle size={120} />
+                    </div>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '12px', fontSize: '1.05rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('sec_alerts')}</p>
+                    <h3 style={{ fontSize: '3rem', margin: 0, color: tamperedCount > 0 ? 'var(--danger)' : 'white', fontWeight: 700, textShadow: tamperedCount > 0 ? '0 0 20px rgba(239,68,68,0.5)' : 'none' }}>{tamperedCount}</h3>
                 </div>
             </div>
             {/* Historical Trends Chart */}
@@ -293,20 +305,20 @@ export default function SupervisorDashboard() {
             <div className="glass-panel" style={{ padding: 0, overflow: 'hidden' }}>
                 {loading ? (
                     <div style={{ textAlign: 'center', padding: '60px' }}>
-                        <div style={{ width: 40, height: 40, border: '4px solid rgba(255,255,255,0.1)', borderTop: '4px solid var(--primary)', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto 16px' }}></div>
+                        <div style={{ width: 40, height: 40, border: '4px solid rgba(255,255,255,0.05)', borderTop: '4px solid var(--primary)', borderRadius: '50%', animation: 'spin 1s linear infinite', margin: '0 auto 16px', boxShadow: '0 0 20px rgba(0,246,255,0.3)' }}></div>
                         <p style={{ color: 'var(--text-muted)' }}>{t('currently_syncing')}...</p>
                     </div>
                 ) : (
                     <div className="table-responsive">
-                        <table className="data-table">
+                        <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
                             <thead>
-                                <tr>
-                                    <th>{t('timestamp')}</th>
-                                    <th>{t('site_location')}</th>
-                                    <th>{t('field_agent')}</th>
-                                    <th>{t('water_level')}</th>
-                                    <th>{t('geofence_in')}</th>
-                                    <th>{t('proof')}</th>
+                                <tr style={{ background: 'rgba(0,0,0,0.2)' }}>
+                                    <th style={{ padding: '16px 24px', color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('timestamp')}</th>
+                                    <th style={{ padding: '16px 24px', color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('site_location')}</th>
+                                    <th style={{ padding: '16px 24px', color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('field_agent')}</th>
+                                    <th style={{ padding: '16px 24px', color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('water_level')}</th>
+                                    <th style={{ padding: '16px 24px', color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('geofence_in')}</th>
+                                    <th style={{ padding: '16px 24px', color: 'var(--text-muted)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>{t('proof')}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -314,30 +326,30 @@ export default function SupervisorDashboard() {
                                     <tr><td colSpan="6" className="text-center" style={{ padding: '32px', color: 'var(--text-muted)' }}>{t('no_readings')}</td></tr>
                                 ) : (
                                     readings.map(r => (
-                                        <tr key={r.id}>
-                                            <td style={{ color: 'var(--text-muted)' }}>{new Date(r.timestamp).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })}</td>
-                                            <td style={{ color: 'white', fontWeight: 700 }}>{r.site_name}</td>
-                                            <td>
-                                                <span style={{ background: 'rgba(255,255,255,0.1)', padding: '4px 8px', borderRadius: '4px', fontSize: '0.85rem' }}>{r.user_name || 'Public'}</span>
+                                        <tr key={r.id} style={{ transition: 'background 0.2s ease' }} onMouseOver={e => e.currentTarget.style.background = 'rgba(255,255,255,0.02)'} onMouseOut={e => e.currentTarget.style.background = 'transparent'}>
+                                            <td style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,0.03)', color: 'var(--text-muted)' }}>{new Date(r.timestamp).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })}</td>
+                                            <td style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,0.03)', color: 'white', fontWeight: 600 }}>{r.site_name}</td>
+                                            <td style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
+                                                <span style={{ background: 'rgba(0,246,255,0.1)', border: '1px solid rgba(0,246,255,0.2)', color: 'var(--primary)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.85rem', fontWeight: 500 }}>{r.user_name || 'Public'}</span>
                                             </td>
-                                            <td className="text-gradient" style={{ fontSize: '1.2rem', fontWeight: 700 }}>{r.water_level} cm</td>
-                                            <td>
+                                            <td className="text-gradient" style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,0.03)', fontSize: '1.25rem', fontWeight: 700, textShadow: '0 0 10px rgba(0,246,255,0.3)' }}>{r.water_level} cm</td>
+                                            <td style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
                                                 {r.is_tampered ? (
-                                                    <span className="badge badge-danger" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                                                    <span className="badge badge-danger" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '6px 14px', borderRadius: '12px', background: 'rgba(239, 68, 68, 0.15)', color: 'var(--danger)', border: '1px solid rgba(239, 68, 68, 0.3)', boxShadow: '0 0 15px rgba(239, 68, 68, 0.2)' }}>
                                                         <AlertTriangle size={14} /> {t('tampered')}
                                                     </span>
                                                 ) : (
-                                                    <span className="badge badge-success" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
+                                                    <span className="badge badge-success" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '6px 14px', borderRadius: '12px', background: 'rgba(16, 185, 129, 0.15)', color: 'var(--success)', border: '1px solid rgba(16, 185, 129, 0.3)', boxShadow: '0 0 15px rgba(16, 185, 129, 0.1)' }}>
                                                         <CheckCircle size={14} /> {t('validated')}
                                                     </span>
                                                 )}
                                             </td>
-                                            <td>
+                                            <td style={{ padding: '16px 24px', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
                                                 {r.photo_path ? (
-                                                    <a href={`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${r.photo_path}`} target="_blank" rel="noopener noreferrer" className="btn btn-text" style={{ padding: '6px 12px', color: 'white', background: 'rgba(14, 165, 233, 0.2)', border: '1px solid rgba(14, 165, 233, 0.3)' }}>
-                                                        <ImageIcon size={16} /> {t('view_image')}
+                                                    <a href={`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}${r.photo_path}`} target="_blank" rel="noopener noreferrer" className="btn btn-text" style={{ padding: '8px 14px', color: 'var(--primary)', background: 'rgba(0,246,255,0.1)', border: '1px solid rgba(0,246,255,0.2)', borderRadius: '999px', fontSize: '0.85rem', fontWeight: 600, transition: 'all 0.2s ease', display: 'inline-flex', alignItems: 'center', gap: '6px' }} onMouseOver={e => { e.currentTarget.style.background = 'rgba(0,246,255,0.2)'; e.currentTarget.style.boxShadow = '0 0 15px rgba(0,246,255,0.3)'; }} onMouseOut={e => { e.currentTarget.style.background = 'rgba(0,246,255,0.1)'; e.currentTarget.style.boxShadow = 'none'; }}>
+                                                        <ImageIcon size={14} /> {t('view_image')}
                                                     </a>
-                                                ) : <span style={{ color: 'var(--text-muted)', fontStyle: 'italic' }}>{t('no_image')}</span>}
+                                                ) : <span style={{ color: 'var(--text-muted)', fontStyle: 'italic', fontSize: '0.85rem' }}>{t('no_image')}</span>}
                                             </td>
                                         </tr>
                                     ))
