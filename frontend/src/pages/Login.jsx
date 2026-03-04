@@ -82,14 +82,14 @@ export default function Login() {
                 </div>
 
                 {/* Login Form Side */}
-                <div style={{ flex: 1, padding: '48px 40px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', zIndex: 1 }}>
+                <div style={{ flex: 1, padding: 'clamp(24px, 5vw, 48px) clamp(20px, 4vw, 40px)', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center', position: 'relative', zIndex: 1, boxSizing: 'border-box', width: '100%' }}>
                     <div className="animate-pulse-glow" style={{ margin: '0 auto 24px', width: '64px', height: '64px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(0,246,255,0.2), rgba(93,0,255,0.2))', border: '1px solid rgba(0,246,255,0.4)', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: '0 0 20px rgba(0,246,255,0.3)' }}>
                         <Lock color="var(--primary)" size={28} />
                     </div>
-                    <h2 style={{ marginBottom: '6px', fontSize: '1.6rem', fontWeight: 600 }}>{t('login_title')}</h2>
+                    <h2 style={{ marginBottom: '6px', fontSize: 'clamp(1.2rem, 4vw, 1.6rem)', fontWeight: 600 }}>{t('login_title')}</h2>
                     <p style={{ color: 'var(--text-muted)', marginBottom: '32px', fontSize: '0.95rem' }}>Welcome back. Please enter your credentials.</p>
 
-                    <form onSubmit={handleLogin} style={{ textAlign: 'left' }}>
+                    <form onSubmit={handleLogin} style={{ textAlign: 'left', width: '100%' }}>
                         <div className="input-group">
                             <label style={{ fontWeight: 500, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--text-muted)' }}>{t('username')}</label>
                             <input
@@ -98,7 +98,7 @@ export default function Login() {
                                 placeholder="e.g. admin"
                                 value={username}
                                 onChange={e => setUsername(e.target.value)}
-                                style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }}
+                                style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', width: '100%', boxSizing: 'border-box' }}
                                 required
                             />
                         </div>
@@ -110,24 +110,24 @@ export default function Login() {
                                 placeholder="••••••••"
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
-                                style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }}
+                                style={{ background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', width: '100%', boxSizing: 'border-box' }}
                                 required
                             />
                         </div>
 
                         {error && (
-                            <div className="badge badge-danger" style={{ marginBottom: '12px', marginTop: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', padding: '12px 16px', borderRadius: '12px', boxShadow: '0 0 15px rgba(239, 68, 68, 0.3)' }}>
+                            <div className="badge badge-danger" style={{ marginBottom: '12px', marginTop: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', padding: '12px 16px', borderRadius: '12px', boxShadow: '0 0 15px rgba(239, 68, 68, 0.3)', width: '100%', boxSizing: 'border-box' }}>
                                 ⚠️ {error}
                             </div>
                         )}
 
-                        <button type="submit" className="btn btn-primary w-full" disabled={isLoading} style={{ marginTop: '24px', padding: '16px', fontSize: '1.05rem', boxShadow: '0 0 20px rgba(0,246,255,0.4)', borderRadius: '12px' }}>
+                        <button type="submit" className="btn btn-primary w-full" disabled={isLoading} style={{ marginTop: '24px', padding: '16px', fontSize: '1.05rem', boxShadow: '0 0 20px rgba(0,246,255,0.4)', borderRadius: '12px', width: '100%', boxSizing: 'border-box' }}>
                             {isLoading ? '⏳ Authenticating...' : t('login_btn')}
                         </button>
                     </form>
 
                     {/* Demo Accounts */}
-                    <div style={{ marginTop: '32px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '24px' }}>
+                    <div style={{ marginTop: '32px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '24px', width: '100%' }}>
                         <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '12px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em' }}>Demo Accounts</p>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
                             {demoAccounts.map(acc => (
@@ -135,12 +135,12 @@ export default function Login() {
                                     key={acc.user}
                                     type="button"
                                     onClick={() => { setUsername(acc.user); setPassword(acc.pass); }}
-                                    style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '12px 16px', color: 'var(--text-muted)', fontSize: '0.85rem', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)' }}
+                                    style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '12px 16px', color: 'var(--text-muted)', fontSize: '0.85rem', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', transition: 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)', width: '100%', boxSizing: 'border-box' }}
                                     onMouseOver={e => { e.currentTarget.style.background = 'rgba(0,246,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(0,246,255,0.2)'; e.currentTarget.style.transform = 'translateY(-2px)' }}
                                     onMouseOut={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.transform = 'translateY(0)' }}
                                 >
                                     <span style={{ fontWeight: 500, color: 'white' }}>{acc.label}</span>
-                                    <span style={{ fontFamily: 'monospace', opacity: 0.8, color: 'var(--primary)' }}>{acc.user} / {acc.pass}</span>
+                                    <span style={{ fontFamily: 'monospace', opacity: 0.8, color: 'var(--primary)', maxWidth: '50%', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{acc.user} /*</span>
                                 </button>
                             ))}
                         </div>

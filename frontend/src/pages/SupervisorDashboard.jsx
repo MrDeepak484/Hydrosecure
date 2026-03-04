@@ -249,53 +249,53 @@ export default function SupervisorDashboard() {
             </div>
 
             {/* Analytical Stat Cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginBottom: '32px' }}>
-                <div className="stat-card glass-panel" style={{ padding: '32px 24px', position: 'relative', overflow: 'hidden', borderBottom: '2px solid rgba(0,246,255,0.5)', background: 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(0,246,255,0.05) 100%)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(240px, 30vw, 280px), 1fr))', gap: 'clamp(16px, 3vw, 24px)', marginBottom: '32px', width: '100%', boxSizing: 'border-box' }}>
+                <div className="stat-card glass-panel" style={{ padding: 'clamp(20px, 4vw, 32px) clamp(16px, 3vw, 24px)', position: 'relative', overflow: 'hidden', borderBottom: '2px solid rgba(0,246,255,0.5)', background: 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(0,246,255,0.05) 100%)', boxSizing: 'border-box' }}>
                     <div style={{ position: 'absolute', top: -10, right: -10, opacity: 0.1, color: 'var(--primary)', filter: 'drop-shadow(0 0 15px var(--primary))' }}>
                         <Activity size={120} />
                     </div>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '12px', fontSize: '1.05rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('total_readings')}</p>
-                    <h3 style={{ fontSize: '3rem', margin: 0, color: 'white', fontWeight: 700, textShadow: '0 0 20px rgba(0,246,255,0.5)' }}>{readings.length}</h3>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '12px', fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('total_readings')}</p>
+                    <h3 style={{ fontSize: 'clamp(2.5rem, 5vw, 3rem)', margin: 0, color: 'white', fontWeight: 700, textShadow: '0 0 20px rgba(0,246,255,0.5)' }}>{readings.length}</h3>
                 </div>
 
-                <div className="stat-card glass-panel" style={{ padding: '32px 24px', position: 'relative', overflow: 'hidden', borderBottom: '2px solid rgba(16,185,129,0.5)', background: 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(16,185,129,0.05) 100%)' }}>
+                <div className="stat-card glass-panel" style={{ padding: 'clamp(20px, 4vw, 32px) clamp(16px, 3vw, 24px)', position: 'relative', overflow: 'hidden', borderBottom: '2px solid rgba(16,185,129,0.5)', background: 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(16,185,129,0.05) 100%)', boxSizing: 'border-box' }}>
                     <div style={{ position: 'absolute', top: -10, right: -10, opacity: 0.1, color: 'var(--success)', filter: 'drop-shadow(0 0 15px var(--success))' }}>
                         <MapPin size={120} />
                     </div>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '12px', fontSize: '1.05rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('monitored_sites')}</p>
-                    <h3 style={{ fontSize: '3rem', margin: 0, color: 'white', fontWeight: 700, textShadow: '0 0 20px rgba(16,185,129,0.5)' }}>{sites.length}</h3>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '12px', fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('monitored_sites')}</p>
+                    <h3 style={{ fontSize: 'clamp(2.5rem, 5vw, 3rem)', margin: 0, color: 'white', fontWeight: 700, textShadow: '0 0 20px rgba(16,185,129,0.5)' }}>{sites.length}</h3>
                 </div>
 
-                <div className="stat-card glass-panel" style={{ padding: '32px 24px', position: 'relative', overflow: 'hidden', borderBottom: tamperedCount > 0 ? '2px solid var(--danger)' : '2px solid rgba(16,185,129,0.5)', background: tamperedCount > 0 ? 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(239,68,68,0.08) 100%)' : 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(16,185,129,0.05) 100%)' }}>
+                <div className="stat-card glass-panel" style={{ padding: 'clamp(20px, 4vw, 32px) clamp(16px, 3vw, 24px)', position: 'relative', overflow: 'hidden', borderBottom: tamperedCount > 0 ? '2px solid var(--danger)' : '2px solid rgba(16,185,129,0.5)', background: tamperedCount > 0 ? 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(239,68,68,0.08) 100%)' : 'linear-gradient(180deg, rgba(3,7,18,0.4) 0%, rgba(16,185,129,0.05) 100%)', boxSizing: 'border-box' }}>
                     <div style={{ position: 'absolute', top: -10, right: -10, opacity: 0.1, color: tamperedCount > 0 ? 'var(--danger)' : 'var(--success)', filter: `drop-shadow(0 0 15px ${tamperedCount > 0 ? 'var(--danger)' : 'var(--success)'})` }}>
                         <AlertTriangle size={120} />
                     </div>
-                    <p style={{ color: 'var(--text-muted)', marginBottom: '12px', fontSize: '1.05rem', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('sec_alerts')}</p>
-                    <h3 style={{ fontSize: '3rem', margin: 0, color: tamperedCount > 0 ? 'var(--danger)' : 'white', fontWeight: 700, textShadow: tamperedCount > 0 ? '0 0 20px rgba(239,68,68,0.5)' : 'none' }}>{tamperedCount}</h3>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '12px', fontSize: 'clamp(0.9rem, 2vw, 1.05rem)', fontWeight: 500, textTransform: 'uppercase', letterSpacing: '1px' }}>{t('sec_alerts')}</p>
+                    <h3 style={{ fontSize: 'clamp(2.5rem, 5vw, 3rem)', margin: 0, color: tamperedCount > 0 ? 'var(--danger)' : 'white', fontWeight: 700, textShadow: tamperedCount > 0 ? '0 0 20px rgba(239,68,68,0.5)' : 'none' }}>{tamperedCount}</h3>
                 </div>
             </div>
             {/* Historical Trends Chart */}
-            <div className="glass-panel" style={{ padding: '24px', marginBottom: '32px' }}>
-                <h3 style={{ margin: '0 0 20px 0', fontSize: '1.2rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div className="glass-panel" style={{ padding: 'clamp(16px, 3vw, 24px)', marginBottom: '32px', boxSizing: 'border-box', width: '100%', overflowX: 'auto' }}>
+                <h3 style={{ margin: '0 0 20px 0', fontSize: 'clamp(1rem, 3vw, 1.2rem)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <ChartIcon size={20} color="var(--primary)" /> {t('regional_trends')}
                 </h3>
-                <div style={{ height: '300px', width: '100%' }}>
+                <div style={{ height: 'clamp(200px, 40vh, 300px)', width: '100%', minWidth: '300px' }}>
                     {readings.length > 0 ? (
                         <ResponsiveContainer width="100%" height="100%">
                             <LineChart data={chartData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
-                                <XAxis dataKey="time" stroke="rgba(255,255,255,0.5)" tick={{ fill: 'rgba(255,255,255,0.5)', fontSize: 12 }} />
-                                <YAxis stroke="rgba(255,255,255,0.5)" tick={{ fill: 'rgba(255,255,255,0.5)', fontSize: 12 }} />
+                                <XAxis dataKey="time" stroke="rgba(255,255,255,0.5)" tick={{ fill: 'rgba(255,255,255,0.5)', fontSize: 10 }} />
+                                <YAxis stroke="rgba(255,255,255,0.5)" tick={{ fill: 'rgba(255,255,255,0.5)', fontSize: 10 }} width={40} />
                                 <Tooltip
                                     contentStyle={{ background: 'rgba(15, 23, 42, 0.9)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px' }}
                                     itemStyle={{ color: 'var(--primary)' }}
                                 />
                                 <Legend wrapperStyle={{ paddingTop: '10px' }} />
-                                <Line type="monotone" dataKey="level" name={t('water_level')} stroke="var(--primary)" strokeWidth={3} dot={{ r: 4, fill: 'var(--background)', strokeWidth: 2 }} activeDot={{ r: 6 }} />
+                                <Line type="monotone" dataKey="level" name={t('water_level')} stroke="var(--primary)" strokeWidth={2} dot={{ r: 3, fill: 'var(--background)', strokeWidth: 2 }} activeDot={{ r: 5 }} />
                             </LineChart>
                         </ResponsiveContainer>
                     ) : (
-                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: 'var(--text-muted)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', color: 'var(--text-muted)', textAlign: 'center' }}>
                             {t('no_readings')}
                         </div>
                     )}
