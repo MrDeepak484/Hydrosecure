@@ -282,9 +282,9 @@ export default function SupervisorDashboard() {
                 <h3 style={{ margin: '0 0 20px 0', fontSize: 'clamp(1rem, 3vw, 1.2rem)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <ChartIcon size={20} color="var(--primary)" /> {t('regional_trends')}
                 </h3>
-                <div style={{ position: 'relative', width: '100%', height: 'clamp(200px, 40vh, 300px)' }}>
+                <div style={{ height: '350px', width: '100%', overflowX: 'auto', overflowY: 'hidden' }}>
                     {readings.length > 0 ? (
-                        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
+                        <div style={{ minWidth: '400px', height: '100%' }}>
                             <ResponsiveContainer width="100%" height="100%">
                                 <LineChart data={chartData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
                                     <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
